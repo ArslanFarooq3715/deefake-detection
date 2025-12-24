@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Deepfake Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Realtime Deepfake Detection</h1>
+            <p class="subtitle">Upload a video to analyze frames for deepfake detection</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="videoInput" accept="video/*" style="display: none;">
+                <div class="upload-content">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h3>Choose Video File</h3>
+                    <p>Click here or drag and drop your video file</p>
+                    <p class="file-info">Supported formats: MP4, AVI, MOV, MKV, WEBM</p>
+                </div>
+            </div>
+            <div class="file-name" id="fileName"></div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processing video... This may take a moment</p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="overall-result" id="overallResult">
+                <h2>Overall Result</h2>
+                <div class="result-badge" id="resultBadge">
+                    <span class="result-label" id="resultLabel"></span>
+                    <span class="result-confidence" id="resultConfidence"></span>
+                </div>
+                <div class="result-stats">
+                    <div class="stat">
+                        <span class="stat-label">Fake Frames:</span>
+                        <span class="stat-value" id="fakeCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Real Frames:</span>
+                        <span class="stat-value" id="realCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Total Analyzed:</span>
+                        <span class="stat-value" id="totalCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Frames Displayed:</span>
+                        <span class="stat-value" id="displayedCount">0</span>
+                    </div>
+                </div>
+                <p class="analysis-note">* Analysis performed on all frames, showing sample frames below</p>
+            </div>
+
+            <div class="frames-grid" id="framesGrid">
+                <!-- Frames will be inserted here -->
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

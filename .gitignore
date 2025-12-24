@@ -1,0 +1,40 @@
+**.gitignore content:**
+```
+# Ignore everything by default
+*
+*/
+
+# But don't ignore these files and folders
+!.gitignore
+!app.py
+!Deepfake_detection_optimized.py
+!inference-book.py
+!requirements.txt
+!OPTIMIZATION_GUIDE.md
+!README.md
+!training_curves_optimized-efficient-b4.png
+!training_curves_optimized.png
+
+# Include these folders and their contents
+!static/
+!static/**
+!templates/
+!templates/**
+!uploads/
+!uploads/**
+
+# Include saved model files
+
+*.pth
+
+# Explicitly ignore these folders even if they match above
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+checkpoints/
+data/
+deepfake_env/
+frames_cache/
+*.json
